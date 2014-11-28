@@ -29,10 +29,10 @@ def madelung_sum(atoms_in_unit_cell, limit):
     for z in range(-limit, limit):  # stepping across z
         for atom in current_atoms:
             atom[2] += z
-        for y in range(-limit,limit):  # Stepping across y
+        for y in range(-limit, limit):  # Stepping across y
             for atom in current_atoms:
                 atom[1] += y
-            for x in range(-limit,limit):  # Stepping across x
+            for x in range(-limit, limit):  # Stepping across x
                 for atom in current_atoms:
                     atom[0] += x
                 energy += unit_cell_pair_energy(current_atoms, atoms_in_unit_cell)
