@@ -1,5 +1,6 @@
 __author__ = 'Rob'
 
+
 def atom_pair_energy(atom1, atom2):
     energy = 0
     import math
@@ -7,6 +8,7 @@ def atom_pair_energy(atom1, atom2):
     if sep != 0:  # avoid divide by zero for an atom being paired with itself
         energy = (atom1[3] * atom2[3]) / sep
     return energy
+
 
 def unit_cell_pair_energy(atom_list1, atom_list2):
     energy = 0
@@ -20,6 +22,7 @@ def separation(atom1, atom2):
     import math
     sep = math.sqrt((atom1[0] - atom2[0]) ** 2 + (atom1[1] - atom2[1]) ** 2 + (atom1[2] - atom2[2]) ** 2)
     return sep
+
 
 def madelung_sum(atoms_in_unit_cell, limit):
     current_atoms = []
