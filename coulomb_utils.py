@@ -24,7 +24,7 @@ def separation(atom1, atom2):
     return sep
 
 
-def madelung_sum(atoms_in_unit_cell, limit, plane, offset):
+def madelung_sum(atoms_in_unit_cell, limit):
     # This functions takes a unit cell (assumed to be cubic) of atoms in the form of a list of atoms, where each atom is
     # a list consisting of it's position and charge: [x,y,z,q]. It creates a copy of the list of atoms which I have
     # termed current_atoms. It is this set that are offset with each iteration of the function. Each atom in the current
