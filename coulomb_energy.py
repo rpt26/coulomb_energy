@@ -13,7 +13,7 @@ refB = [0.5, 0.5, 0.5, chargeB]  # Similarly for B
 reference_atoms = [refA, refB]
 energy = 0
 
-file = open('convergence.txt', 'a')
+file = open('convergence.out', 'a')
 for number in range(500):
     energy += coulomb_utils.madelung_sum(reference_atoms, number)
     string = str(number) + ' ' + str(energy)
@@ -21,6 +21,3 @@ for number in range(500):
     print(number, energy)
 
 file.close()
-
-
-
