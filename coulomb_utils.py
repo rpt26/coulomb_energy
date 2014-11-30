@@ -49,6 +49,7 @@ def madelung_sum(atoms_in_unit_cell, limit, plane, offset):
                 for atom in current_atoms:
                     atom[0] += x
 
+
                 energy += unit_cell_pair_energy(current_atoms, atoms_in_unit_cell)
 
     return energy
