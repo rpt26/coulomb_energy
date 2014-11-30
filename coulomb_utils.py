@@ -24,16 +24,16 @@ def separation(atom1, atom2):
     return sep
 
 
-def madelung_sum(atoms_in_unit_cell, limit):
+def madelung_sum(atoms_in_unit_cell, limit, plane, offset):
     # This functions takes a unit cell (assumed to be cubic) of atoms in the form of a list of atoms, where each atom is
     # a list consisting of it's position and charge: [x,y,z,q]. It creates a copy of the list of atoms which I have
     # termed current_atoms. It is this set that are offset with each iteration of the function. Each atom in the current
     # cell are compared back to the original unit cell, atoms_in_unit_cell using the pair energy function defined above.
     # Finally I will be adding a test just before the calculation in energy that will allow us to identify atoms on
-    # one side of an arbitrary plane, as a list [h,k,l] following the crystallography conventions, in a cubic crystal
-    # this is also a vector perpendicular to the plane in question. We can apply an offset, another vector, to those
-    # atoms on one side and not the other. The energy vs offset might be relevant to the plastic properties of the
-    # material.
+    # one side of an arbitrary plane, as a list [h,k,l,d] following the crystallography conventions for h,k,l and d
+    # being the offset from zero along that normal vector. In a cubic crystal the h,k,l is also a vector perpendicular
+    # to the plane in question. We can apply an offset, another vector, to those atoms on one side and not the other.
+    # The energy vs offset might be relevant to the plastic properties of the material.
 
     current_atoms = []  # Here's an empty list to fill with atoms which we can then move around
     for atom in atoms_in_unit_cell:
@@ -49,8 +49,6 @@ def madelung_sum(atoms_in_unit_cell, limit):
                 for atom in current_atoms:
                     atom[0] += x
 
-
                 energy += unit_cell_pair_energy(current_atoms, atoms_in_unit_cell)
-
 
     return energy
